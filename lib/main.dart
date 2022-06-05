@@ -12,6 +12,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+
   @override
   void initState() {
     super.initState();
@@ -37,8 +39,9 @@ class _MyAppState extends State<MyApp> {
     // Present the dialog to the user
     final response = await http.post(url, body: {
       'client_id': 'na5h83snicfs7tlxead5nznvtkw6yb',
-      'redirect_uri': 'http://localhost/callback',
-      'grant_type': 'authorization_code',
+      'client secret':'na5h83snicfs7tlxead5nznvtkw6yb',
+      'redirect_uri': 'https://com.vipxam.webauthenticator-12345://callback',
+      'grant_type': 'hola',
       'code': code,
     });
 
