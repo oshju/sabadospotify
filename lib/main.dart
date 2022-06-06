@@ -40,9 +40,9 @@ class _MyAppState extends State<MyApp> {
     final response = await http.post(url, body: {
       'client_id': 'na5h83snicfs7tlxead5nznvtkw6yb',
       'client secret':'na5h83snicfs7tlxead5nznvtkw6yb',
-      'redirect_uri': 'https://com.vipxam.webauthenticator-12345://callback',
-      'grant_type': 'hola',
-      'code': code,
+      'redirect_uri': 'https://192.168.0.14:8000',
+      'grant_type': 'authorization_code',
+      'code': 'hola',
     });
 
 // Extract token from resulting url
