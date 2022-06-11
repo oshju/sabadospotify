@@ -38,8 +38,8 @@ class _MyAppState extends State<MyApp> {
     final Uri url = Uri.parse(apiEndpoint);
     // Present the dialog to the user
     final response = await http.post(url, body: {
-      'client_id': 'na5h83snicfs7tlxead5nznvtkw6yb',
-      'client secret':'na5h83snicfs7tlxead5nznvtkw6yb',
+      'client_id': 'token',
+      'client secret':'token',
       'redirect_uri': 'https://192.168.0.14:8000',
       'grant_type': 'authorization_code',
       'code': 'hola',
