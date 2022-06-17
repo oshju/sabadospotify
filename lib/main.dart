@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_web_auth/flutter_web_auth.dart';
 import 'package:sabadospotify/oauth.dart';
@@ -33,43 +31,25 @@ class _MyAppState extends State<MyApp> {
   }*/
 
 
-  void loginWithDiscord() async {
 
-
-    const clientId = '987317794515341414' ;
-    const callbackUrlScheme = 'com.example.sabadospotify';
-    const redirectUri = 'http://localhost'; // OR 'com.area:/';
-// Construct the url
-
-    final url = Uri.https('discord.com', '/api/oauth2/authorize', {
-      'response_type': 'code',
-      'client_id': clientId,
-      'redirect_uri': redirectUri,
-      'scope': 'identify',
-    });
-// Present the dialog to the user
-
-    final result = await FlutterWebAuth.authenticate(
-        url: url.toString(), callbackUrlScheme: callbackUrlScheme);
-// Extract code from resulting url
-
-    final code = Uri.parse(result).queryParameters['code'];
-// Use this code to get an access token
-
-    final response = await http
-        .post(Uri.parse('https://discord.com/api/oauth2/authorize'),headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: {
-      'client_id': clientId,
-      'redirect_uri': redirectUri,
+  void authenticate() async {
+    final String apiEndpoint =
+        'https://id.twitch.tv/oauth2/token'; // Replace with your own api url
+    final Uri url = Uri.parse(apiEndpoint);
+    // Present the dialog to the user
+    final response = await http.post(url, body: {
+      'client_id': 'na5h83snicfs7tlxead5nznvtkw6yb',
+      'client secret':'na5h83snicfs7tlxead5nznvtkw6yb',
+      'redirect_uri': 'https://192.168.0.14:8000',
       'grant_type': 'authorization_code',
-      'code': code,
-      //'Content-Type': 'application/x-www-form-urlencoded'
+      'code': 'hola',
     });
-// Get the access token from the response
 
-    final accessToken = jsonDecode(response.body)['access_token'] as String;
-    print(accessToken);
+// Extract token from resulting url
+    final token = Uri.parse(response.body).queryParameters['token'];
+    print('token');
+    print(token);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -79,16 +59,11 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Web Auth example'),
         ),
         body: Center(
-        child: new TextButton(
-          child: Text('Mostrar ventana 2'),
-          style: TextButton.styleFrom(
-          primary: Colors.white,
-          backgroundColor: Colors.blue,
+          child: Text(
+            'test',
           ),
-            onPressed: () {
-            loginWithDiscord();
-    }),
-    )));
-
+        ),
+      ),
+    );
   }
 }
