@@ -2,8 +2,12 @@
     package="com.example.sabadospotify">
    <application
         android:label="sabadospotify"
+       android:usesCleartextTraffic="true"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+
+          >
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -26,7 +30,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme='http' android:host='com.example.sabadospotify' />
+                <data android:scheme='http' android:host='http://192.168.0.14:62843' />
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.
