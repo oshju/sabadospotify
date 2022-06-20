@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
 
   void login() async{
 
-    const clientId = '987317794515341414' ;
+    const clientId = 'token' ;
     const callbackUrlScheme = 'http://192.168.0.14:62843';
     const redirectUri = 'http://192.168.0.14:62843'; // OR 'com.area:/';
 // Construct the url
