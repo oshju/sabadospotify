@@ -51,6 +51,8 @@ class _MyAppState extends State<MyApp> {
       'code': code,
     });
     print(response);
+    final accessToken = jsonDecode(response.body)['access_token'] as String;
+    print(accessToken);
 
   }
   /* dynamic authcode()async{
